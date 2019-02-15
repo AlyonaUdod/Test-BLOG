@@ -32,6 +32,26 @@ e.g.
 https://test-blog-au.herokuapp.com/api/posts/5c66b8501a8ae281f4d6b851
 
 
+{
+    "_id": {
+        "$oid": "5c66b8501a8ae281f4d6b851"
+    },
+    "title": "Hello",
+    "body": "Hello heloooo",
+    "comments": [
+        {
+            "_id": {
+                "$oid": "5c66beeded4bdf001773a66c"
+            },
+            "author": "Anonymous",
+            "text": "Hello everyone!"
+        }
+    ],
+    "__v": 1
+}
+
+
+
 --------------------------------------
 
 
