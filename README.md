@@ -39,6 +39,43 @@ POST https://test-blog-au.herokuapp.com/api/posts/
 
 Creating new post. Required body parameters: title -> String, body -> String.
 
+
 --------------------------------------
 
 
+POST https://test-blog-au.herokuapp.com/api/posts/:id/comments
+
+Creating new comment to post. Required body parameters: author -> String, text -> String.
+
+e.g. 
+
+https://test-blog-au.herokuapp.com/api/posts/5c66b8501a8ae281f4d6b851/comments
+
+
+--------------------------------------
+
+
+PUT https://test-blog-au.herokuapp.com/api/posts/:id
+
+Updating existed post. Required body parameters all post (post object)
+
+e.g.
+
+https://test-blog-au.herokuapp.com/api/posts/5c66b8501a8ae281f4d6b851
+  
+
+    {
+      "_id": {
+          "$oid": "5c66b8501a8ae281f4d6b851"
+      },
+      "title": "New title",
+      "body": "New Body",
+    }
+    
+ 
+
+--------------------------------------
+
+DELTE https://test-blog-au.herokuapp.com/api/posts/:id
+
+Delete post by id.
