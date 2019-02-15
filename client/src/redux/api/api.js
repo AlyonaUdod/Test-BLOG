@@ -5,11 +5,11 @@ export function getPosts() {
 }
 
 export function getSinglePost(id) {
-    return axios.get(`http://localhost:8000/api/posts/${id}`)
+    return axios.get(`/api/posts/${id}`)
 }
 
 export function postPost(obj) {
-    return axios.post('http://localhost:8000/api/posts/', obj, {
+    return axios.post('/api/posts/', obj, {
         headers: {
             'Content-Type': 'application/json',
         }
@@ -18,7 +18,7 @@ export function postPost(obj) {
 
 export function postComment(id, obj) {
     // console.log(id, obj)
-    return axios.post(`http://localhost:8000/api/posts/${id}/comments`, obj, {
+    return axios.post(`/api/posts/${id}/comments`, obj, {
         headers: {
             'Content-Type': 'application/json',
         } 
@@ -26,7 +26,7 @@ export function postComment(id, obj) {
 }
 
 export function updatePost(id, obj){
-    return axios.put(`http://localhost:8000/api/posts/${id}`, obj, {
+    return axios.put(`/api/posts/${id}`, obj, {
         headers: {
             'Content-Type': 'application/json',
         } 
@@ -34,5 +34,5 @@ export function updatePost(id, obj){
 }
 
 export function deletePost(id){
-    return axios.delete(`http://localhost:8000/api/posts/${id}`)
+    return axios.delete(`/api/posts/${id}`)
 }
