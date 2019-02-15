@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export function getPosts() {
-    return axios.get(`http://localhost:8000/api/posts/`)
+    return axios.get(`/api/posts/`)
 }
 
 export function getSinglePost(id) {
@@ -17,7 +17,6 @@ export function postPost(obj) {
 }
 
 export function postComment(id, obj) {
-    // console.log(id, obj)
     return axios.post(`/api/posts/${id}/comments`, obj, {
         headers: {
             'Content-Type': 'application/json',

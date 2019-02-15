@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config()
-const postsRoutes = require('./postsRoutes.js')
+const postsRoutes = require('./routes/postsRoutes')
 
 const PORT = process.env.PORT || 8000;
 

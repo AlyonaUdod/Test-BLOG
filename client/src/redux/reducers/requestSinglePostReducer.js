@@ -5,7 +5,7 @@ export default function posts (state={}, action) {
         case ActionTypes.GET_SINGLE_POST:
             return action.payload;
         case ActionTypes.ADD_COMMENT:
-            return {...state, comments: [...state.comments, action.payload]};
+            return {...state, comments: [...action.payload, action.post]};
         default: 
             return state;
     }

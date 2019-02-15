@@ -20,10 +20,15 @@ export function addCreatePostErrorToStore() {
 
 export const createComment = (id, post) => dispatch => {
     return postComment(id, post)
-        .then(data => console.log(data))
-        // .then(res => dispatch(addPostsToStore(res.data)))
-        // .catch(() => dispatch(addCreateCommentErrorToStore()))
-        .catch((err) => console.log(err))
+        .then(res => dispatch(addCommentToStore(res.data.comments, post)))
+        .catch(() => dispatch(addCreateCommentErrorToStore()))
+}
+export function addCommentToStore(res, post) {
+    return {
+        type: actionTypes.ADD_COMMENT,
+        payload: res,
+        post: post,
+    }
 }
 export function addCreateCommentErrorToStore() {
     return {
@@ -33,7 +38,6 @@ export function addCreateCommentErrorToStore() {
 
 export const putPost = (id, post) => dispatch => {
     return updatePost(id, post)
-        // .then(data => console.log(data))
         .then(() => dispatch(updatePostInStore(post)))
         .catch(() => dispatch(addUpdatePostErrorToStore()))
 }
@@ -51,10 +55,7 @@ export function addUpdatePostErrorToStore() {
 
 
 export const removePost = (id) => dispatch => {
-
     return deletePost(id)
-        // .then(data => console.log(data))
-        // .then(res => dispatch(addPostsToStore(res.data)))
         .then(() => dispatch(deletePostFromDb(id)))
         .catch(() => dispatch(addDeletePostErrorToStore()))
 }

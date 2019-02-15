@@ -28,4 +28,5 @@
 
 .card {
     flex-basis: 23%;
+    min-width: 150px;
 }

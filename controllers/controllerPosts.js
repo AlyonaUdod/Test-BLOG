@@ -1,6 +1,6 @@
 'use strict'
 
-const db = require('./postDb');
+const db = require('../models/postDb');
 
 module.exports.getPosts = (req, res) => {
     db
@@ -44,18 +44,14 @@ module.exports.postPost = (req, res) => {
 }
 
 module.exports.postComment = (req, res) => {
-  // console.log(req.body)
     db
     .postCommentToDb(req.params.id, req)
-    // .then(data => console.log(data))
     .then((data) => {
-      console.log(data)
       res
         .status(201)
         .json(data);
     })
     .catch((err) => {
-      console.log(err)
       res
         .status(400)
         .json({err: err.message});
@@ -82,7 +78,6 @@ module.exports.updatePost = (req, res) => {
 }
 
 module.exports.deletePost = (req, res) => {
-  // console.log(req.params.id)
     db
     .deletePostFromDB(req.params.id)
     .then(data => {

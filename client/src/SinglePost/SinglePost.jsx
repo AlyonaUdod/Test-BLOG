@@ -26,11 +26,14 @@ class SinglePost extends Component {
         e.preventDefault()
         let comment = {
             author: this.state.author ? this.state.author : 'Anonymous',
-            body: this.state.text,
+            text: this.state.text,
         }
         let id = this.props.post._id
         await this.props.postComment(id, comment)
-        this.props.setComment(comment)
+        this.setState({
+            text: '',
+            author: '',
+        })
     }
 
   render() {
@@ -50,11 +53,10 @@ class SinglePost extends Component {
                     <List.Item key={el._id+el.author+el.body}>
                         <List.Content>
                         <List.Header>{el.author}</List.Header>
-                        {el.body}
+                        {el.text}
                         </List.Content>
                     </List.Item>
                 ) : <p style={{textAlign: 'center'}}> No comments yet.</p>}
-                
                 </List>
             </Segment>
            <Divider/>

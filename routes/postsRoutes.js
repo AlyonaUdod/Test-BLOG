@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const ctrlPosts = require('./controllerPosts');
+const ctrlPosts = require('../controllers/controllerPosts');
 
 router.get('/', ctrlPosts.getPosts)
 

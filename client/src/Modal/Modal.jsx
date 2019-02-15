@@ -2,7 +2,6 @@ import React from 'react';
 import {Modal, Form, Segment, Button} from 'semantic-ui-react'
 
 const ModalPost = ({modal, toggleModal, title, body, handlerChange, createNewPost, newPost, editId}) => {
-    console.log(editId)
     return (
             <Modal open={modal}>
                 <Modal.Header as='h2' style={{textAlign:'center'}}>

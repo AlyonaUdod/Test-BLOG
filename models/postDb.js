@@ -1,7 +1,6 @@
 'use strict'
 
 const Post = require('./postSchema');
-const Comment = require('./commentSchema')
 
 module.exports.getPostsFromDb = function(){
     return Post.find({}, { title: 1, body: 1 })
@@ -21,13 +20,11 @@ module.exports.postPostToDb = function(req){
 };
 
 module.exports.postCommentToDb = function(id, req){
-    Post.findById(id).exec()
-    .then((post) => {
+   return Post.findByIdAndUpdate(id, req.body, function (err, post) {
+        if (err) throw err
         post.comments.push(req.body)
-        return post.save()
-    })
-    
-};
+        post.save()
+})};
 
 module.exports.deletePostFromDB = function (id) {
     return Post.findByIdAndRemove(id);
